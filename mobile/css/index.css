@@ -155,3 +155,20 @@ body {
 		transform: scale(0.9);
 	}
 }
+
+
+.list-item a{ 
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	margin-bottom: 50px;
+	border-radius: 15px;
+	border: 1px solid #ccc;
+	padding: 10px;
+	min-width: 200px;
+	min-height: 50px;	
+	color: rgb(255, 255, 255);
+	font-size: 18px;
+	text-decoration: none;
+}
