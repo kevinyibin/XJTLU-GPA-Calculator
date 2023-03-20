@@ -1,0 +1,44 @@
+/* 隐藏按钮 */
+.hidden {
+  display: none;
+}
+
+.surprise{
+  position: absolute;
+  bottom: 15vh;
+  outline: none;
+  margin: 25px 15px;
+  width: 120px;
+  padding: 10px 0;
+  color: #fff;
+  font-size: 16px;
+  border: 1px solid #fff;
+  background-color: transparent;
+  transition: all 0.5s;
+  border-radius: 7px;
+}
+
+.surprise:hover{
+  color: #fff;
+  border-radius: 5px;
+  border: 1px solid #ce57c1;
+  background-color: #ce57c1;
+  box-shadow: 0 0 5px #ce57c1, 0 0 2px #ce57c1, 0 0 50px #ce57c1, 0 0 10px #ce57c1;
+  width: 200px;
+  transition: all 0.3s ease-in-out;
+}
+
+
+
+#egg {
+  width: 100px;
+  height: 100px;
+  background-color: red;
+  border-radius: 50%;
+  position: absolute;
+  top: -100px;
+  left: -100px;
+  transition: all 0.5s ease-in-out;
+}
+
+

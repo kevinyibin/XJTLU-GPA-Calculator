@@ -1,0 +1,501 @@
+<!doctype html>
+<html lang="zh">
+
+<head>
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-RN2YSD3GRW"></script>
+  <script>
+    window.dataLayer = window.dataLayer || []
+    function gtag () { dataLayer.push(arguments) }
+    gtag('js', new Date())
+    gtag('config', 'G-RN2YSD3GRW');
+  </script>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+    content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta name="keywords" content="keyword1,keyword2,keyword3">
+  <meta name="description" content="this is my page">
+  <meta name="content-type" content="text/html; charset=UTF-8">
+  <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
+  <link rel="stylesheet" href="./static/css/style.css" type="text/css">
+  <link rel="stylesheet" href="./login/style.css">
+  <link rel="stylesheet" href="./about/css/index.css">
+  <link rel="stylesheet" href="./static/css/index.css">
+  <link rel="stylesheet" href="./static/css/nav.css">
+  <link rel="stylesheet" href="./static/css/caidan.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
+  <link rel="stylesheet" href="https://unicons.iconscout.com/release/v3.0.6/css/line.css">
+  <link rel="stylesheet" href="./static/css/bar.css">
+  <link rel="stylesheet" href="http://at.alicdn.com/t/c/font_3449334_r38wy5nxjpc.css">
+  <title>All Pass - 西浦同学的成绩助手</title>
+  <link rel="shortcut icon" href="./static/img/icon.png" />
+</head>
+
+
+<body>
+
+  <!-- 均分计算器 -->
+  <div class="login" id="01">
+    <h2 id="my-element">ALL PASS</h2>
+    <p style="color: white; margin-bottom: 20px">请在下方白色方框中粘贴您的成绩表格，点击查看详细使用教程。
+      <a href="https://www.kevinbean.top/index.php/default/1713.html" target="_blank">使用教程</a>
+    </p>
+    <div class="login_box">
+      <div class="box">
+        <div class="cliptext" id="tab" contenteditable="true" spellcheck="false" onkeyup="checkKey(this,event)"></div>
+      </div>
+
+      <div class="btn">
+        <button class="sub" onclick="getGPA()"> ① 计算GPA</button>
+        <button class="sub" onclick="getResult()"> ② 计算均分</button>
+        <button class="sub" onclick="location.reload();"> ③ 重新计算</button>
+
+      </div>
+      <div class="gpa" id="gpa"></div>
+      <div class="result-wrapper" id="avg"></div>
+
+    </div>
+  </div>
+
+  <!-- 计算学位均分 -->
+  <div class="login1" id="05">
+    <h2>ALL PASS</h2>
+    <p style="color: white; margin-bottom: 20px">大四毕业生使用（大三成绩占30%，大四成绩占70%）
+      <a href="https://www.kevinbean.top/index.php/default/1713.html" target="_blank">使用教程</a>
+      <!-- <button class="a" onclick="showModal()">图文教程</button> -->
+    </p>
+    <div class="login_box">
+      <div class="box">
+        <div class="cliptext" id="tab1" contenteditable="true" spellcheck="false" onkeyup="checkKey(this,event)"></div>
+      </div>
+
+      <div class="btn">
+        <!-- <button class="sub" onclick="getGPA()"> ① 计算GPA</button> -->
+        <button class="sub" onclick="getDegreeAvg()"> ① 计算均分</button>
+        <a class="sub" onclick="location.reload();"> ② 重新计算</a>
+        <!-- <button class="sub" onclick="getDegreeAvg()"> ④ 计算学位均分（大三30%，大四70%）</button> -->
+
+      </div>
+      <div class="gpa" id="gpa"></div>
+      <div class="result" id="avg1"></div>
+    </div>
+  </div>
+
+  <!-- 专业均分 -->
+  <div class="grade" id="02">
+    <ul class="items-group">
+      <li class="item">
+        <div class="desc-group">
+          <div style="
+          display: flex;
+          justify-content: center;">
+            <h3>21-22学年</h3>
+            <i class="iconfont icon-new" style="
+            margin: -6px 0px 0px 7px;
+            font-size: 35px;
+            color: #00B1B1;"></i>
+          </div>
+          <div class="pdf">
+            <a href="./static/课程与专业均分/21-22学年课程或专业均分/PROGRAMME STATISTICS-202122.pdf" target="_blank">专业均分</a>
+            <a href="./static/课程与专业均分/21-22学年课程或专业均分/MODULE STATISTICS-202122.pdf" target="_blank">科目均分</a>
+          </div>
+        </div>
+        </a>
+      </li>
+      <li class="item">
+        <div class="desc-group">
+          <h3>20-21学年</h3>
+          <div class="pdf">
+            <a href="./static/课程与专业均分/20-21学年课程或专业均分/PROGRAMME STATISTICS-202021.pdf" target="_blank">专业均分</a>
+            <a href="./static/课程与专业均分/20-21学年课程或专业均分/MODULE STATISTICS-202021.pdf" target="_blank">科目均分</a>
+          </div>
+        </div>
+        </a>
+      </li>
+      <li class="item">
+        <div class="desc-group">
+          <h3>19-20学年</h3>
+          <div class="pdf">
+            <a href="./static/课程与专业均分/19-20学年课程或专业均分/PROGRAMME STATISTICS-201920.pdf" target="_blank">专业均分</a>
+            <a href="./static/课程与专业均分/19-20学年课程或专业均分/MODULE STATISTICS-201920.pdf" target="_blank">科目均分</a>
+          </div>
+        </div>
+        </a>
+      </li>
+    </ul>
+  </div>
+
+  <!-- 奖学金 -->
+  <div class="scholarship" id="03">
+    <ul class="items-group">
+      <li class="item">
+        <div class="desc-group">
+          <div style="
+          display: flex;
+          justify-content: center;">
+            <h3>21-22学年</h3>
+            <i class="iconfont icon-new" style="
+            margin: -6px 0px 0px 7px;
+            font-size: 35px;
+            color: #ebedf9;"></i>
+          </div>
+
+          <div class="pdf">
+            <!-- <p>尚未更新，敬请期待……</p> -->
+            <a href="./static/奖学金/21-22/Name List for 202223 AY UG Scholarship.pdf" target="_blank">获奖名单</a>
+            <a href="./static/奖学金/21-22/Threshold for 202223 AY UG Scholarship-20220801.pdf" target="_blank">最低标准</a>
+          </div>
+        </div>
+        </a>
+      </li>
+      <li class="item">
+        <div class="desc-group">
+          <h3>20-21学年</h3>
+          <div class="pdf">
+            <a href="./static/奖学金/20-21/202021_AY_Scholarship_name_list.pdf" target="_blank">获奖名单</a>
+            <a href="./static/奖学金/20-21/202021_AY_UG_Scholarship_Threshhold.pdf" target="_blank">最低标准</a>
+          </div>
+        </div>
+        </a>
+      </li>
+      <li class="item">
+        <div class="desc-group">
+          <h3>19-20学年</h3>
+          <div class="pdf">
+            <a href="./static/奖学金/19-20/Academic Scholarship name list 201920 AY.pdf" target="_blank">获奖名单</a>
+            <a href="./static/奖学金/19-20/201920 AY Scholarship threshhold.pdf" target="_blank">最低标准</a>
+          </div>
+        </div>
+        </a>
+      </li>
+      <li class="item">
+        <div class="desc-group">
+          <h3>18-19学年</h3>
+          <div class="pdf">
+            <a href="./static/奖学金/18-19/XJTLU-academic-scholarship-list-for-201819-academic-year-updated.pdf"
+              target="_blank">获奖名单</a>
+            <a href="./static/奖学金/18-19/Threshold-201819-ACY-12-07.pdf" target="_blank">最低标准</a>
+          </div>
+        </div>
+        </a>
+      </li>
+    </ul>
+  </div>
+
+  <!-- 官网校历 -->
+  <div class="calendar" id="06">
+    <ul class="items-group">
+      <li class="item">
+        <div class="desc-group">
+          <h3>23-24学年</h3>
+          <p>请以官网信息为准，本资源更新时间为 2023.02.27</p>
+          <div class="pdf">
+            <a href="./static/校历/XJTLU ACADEMIC CALENDAR_STUDENT_202324.pdf" target="_blank">点击查看</a>
+          </div>
+        </div>
+        </a>
+      </li>
+      <li class="item">
+        <div class="desc-group">
+          <h3>22-23学年</h3>
+          <p>请以官网信息为准，本资源更新时间为 2023.02.27</p>
+          <div class="pdf">
+            <a href="./static/校历/XJTLU ACADEMIC CALENDAR_STUDENT_202223 (1).pdf" target="_blank">点击查看</a>
+          </div>
+        </div>
+        </a>
+      </li>
+
+      <li class="item">
+        <div class="desc-group">
+          <h3>21-22学年</h3>
+          <p>请以官网信息为准，本资源更新时间为 2023.02.27</p>
+          <div class="pdf">
+            <a href="./static/校历/XJTLU Academic Calendar 2021-22-student.pdf" target="_blank">点击查看</a>
+          </div>
+        </div>
+        </a>
+      </li>
+    </ul>
+  </div>
+
+  <!-- 联系作者 -->
+  <div class="about" id="04">
+    <div class="a1">
+      <h1>Kevin Bean</h1>
+      <div class="contact">
+        <h2>Yibin.Gao19</h2>
+        <p>欢迎使用以下方式联系我，我会尽快回复您的反馈！</p>
+        <div class="contact-group">
+          <!-- email -->
+          <div class="contact-item">
+            <i class="iconfont icon-youjian"></i>
+            <a href="mailto:KevinBean@Foxmail.com"> 邮件</a>
+          </div>
+          <!-- github -->
+          <div class="contact-item">
+            <i class="iconfont icon-github-fill"></i>
+            <a href="https://github.com/kevinyibin/XJTLU-Average-Score-Calculation-System" target="_blank"> GitHub </a>
+          </div>
+          <!-- bilibili -->
+          <div class="contact-item">
+            <i class="iconfont icon-bilibili"></i>
+            <a href="https://space.bilibili.com/163625122" target="_blank"> Bilibili </a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="a2">
+      <h1>Big Lemon</h1>
+      <div class="contact">
+        <h2>Wenlei.Liu18</h2>
+        <p>欢迎使用以下方式联系我，我会尽快回复您的反馈！</p>
+        <div class="contact-group">
+          <!-- github -->
+          <div class="contact-item">
+            <i class="iconfont icon-github-fill"></i>
+            <a href="https://github.com/BigLemonRepo" target="_blank"> GitHub </a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+  </div>
+
+  <!-- 导航栏 -->
+  <div class="lang">
+    <div class="nav">
+      <div class="nav-main">
+        <canvas id="canvas-2761" style="position: absolute; z-index: -1; left: 0px;"></canvas>
+        <span class="nav-span"><a class="nav-link nav-active" aria-current="true" href="https://www.kevinbean.top/"
+            data-spm-anchor-id="datav.10712463.0.0"><i class="datav-font datav-icon icon-ArtboardCopy9 nav-icon"></i>
+            首页
+          </a></span>
+        <span class="nav-span"><a class="nav-link" aria-current="false" href="javascript:canvasnav._toggle(1)"
+            onclick="open_01()" data-spm-anchor-id="datav.10712463.0.0"><i
+              class="datav-font datav-icon icon-ArtboardCopy10 nav-icon"
+              data-spm-anchor-id="datav.10712463.0.i0.6f053967skiQbA"></i>
+            均分计算器
+          </a></span>
+        <span class="nav-span"><a id="btn" class="nav-link" aria-current="false" href="javascript:canvasnav._toggle(2)"
+            onclick="open_05()" data-spm-anchor-id="datav.10712463.0.0"><i
+              class="datav-font datav-icon icon-ArtboardCopy10 nav-icon"
+              data-spm-anchor-id="datav.10712463.0.i0.6f053967skiQbA"></i>
+            计算学位均分
+          </a></span>
+        <span class="nav-span"><a class="nav-link" aria-current="false" href="javascript:canvasnav._toggle(3);"
+            onclick="open_02()" data-spm-anchor-id="datav.10712463.0.0"><i
+              class="datav-font datav-icon icon-ArtboardCopy12 nav-icon"></i>
+            专业均分
+          </a></span>
+        <span class="nav-span"><a class="nav-link" aria-current="false" href="javascript:canvasnav._toggle(4);"
+            onclick="open_03()" data-spm-anchor-id="datav.10712463.0.0"><i
+              class="datav-font datav-icon icon-ArtboardCopy11 nav-icon"></i>
+            奖学金
+          </a></span>
+        <span class="nav-span"><a class="nav-link" aria-current="false" href="javascript:canvasnav._toggle(5);"
+            onclick="open_06()" data-spm-anchor-id="datav.10712463.0.0"><i
+              class="datav-font datav-icon icon-ArtboardCopy11 nav-icon"></i>
+            官网校历
+          </a></span>
+        <span class="nav-span"><a class="nav-link" aria-current="false" href="javascript:canvasnav._toggle(6);"
+            onclick="open_04()" data-spm-anchor-id="datav.10712463.0.0"><i
+              class="datav-font datav-icon icon-ArtboardCopy11 nav-icon"></i>
+            联系作者
+          </a></span>
+      </div>
+    </div>
+    <div>
+      <a href="index.html">简体中文</a><span> | </span><a href="en.html">English</a>
+    </div>
+  </div>
+
+  <!-- 页脚 -->
+  <div class="footer">
+    <p class="note" id="note"> *计算结果仅供参考，不可作为成绩认证材料，望知悉。</p>
+    <div class="gov">
+      <img src="static/img/download.png"> <a target="_blank"
+        href="https://beian.miit.gov.cn/">备案号：[津ICP备2021006207号]</a>
+    </div>
+  </div>
+
+  <script src="https://www.jq22.com/jquery/jquery-1.10.2.js"></script>
+
+  <!-- 页面切换 -->
+  <script>
+    function open_01 () {
+      document.getElementById("01").style.display = "block"
+      document.getElementById("02").style.display = "none"
+      document.getElementById("03").style.display = "none"
+      document.getElementById("04").style.display = "none"
+      document.getElementById("05").style.display = "none"
+      document.getElementById("note").style.display = "block"
+      document.getElementById("06").style.display = "none"
+    }
+
+    function open_02 () {
+      document.getElementById("01").style.display = "none"
+      document.getElementById("02").style.display = "flex"
+      document.getElementById("03").style.display = "none"
+      document.getElementById("04").style.display = "none"
+      document.getElementById("05").style.display = "none"
+      document.getElementById("note").style.display = "none"
+      document.getElementById("06").style.display = "none"
+    }
+
+    function open_03 () {
+      document.getElementById("01").style.display = "none"
+      document.getElementById("02").style.display = "none"
+      document.getElementById("03").style.display = "flex"
+      document.getElementById("04").style.display = "none"
+      document.getElementById("05").style.display = "none"
+      document.getElementById("note").style.display = "none"
+      document.getElementById("06").style.display = "none"
+    }
+
+    function open_04 () {
+      document.getElementById("01").style.display = "none"
+      document.getElementById("02").style.display = "none"
+      document.getElementById("03").style.display = "none"
+      document.getElementById("04").style.display = "flex"
+      document.getElementById("05").style.display = "none"
+      document.getElementById("note").style.display = "none"
+      document.getElementById("06").style.display = "none"
+    }
+
+    function open_05 () {
+      document.getElementById("01").style.display = "none"
+      document.getElementById("02").style.display = "none"
+      document.getElementById("03").style.display = "none"
+      document.getElementById("04").style.display = "none"
+      document.getElementById("05").style.display = "block"
+      document.getElementById("note").style.display = "block"
+      document.getElementById("06").style.display = "none"
+    }
+
+    function open_06 () {
+      document.getElementById("01").style.display = "none"
+      document.getElementById("02").style.display = "none"
+      document.getElementById("03").style.display = "none"
+      document.getElementById("04").style.display = "none"
+      document.getElementById("05").style.display = "none"
+      document.getElementById("06").style.display = "flex"
+      document.getElementById("note").style.display = "none"
+    }
+
+
+
+  </script>
+
+  <!-- 判断是否是pc设备 -->
+  <script language="JavaScript">
+    // 判断是否是pc设备
+    function IsPC () {
+      var userAgentInfo = navigator.userAgent
+      var Agents = ["Android", "iPhone", "SymbianOS", "Windows Phone", "iPod"]
+      var flag = true
+      for (var v = 0; v < Agents.length; v++) {
+        if (userAgentInfo.indexOf(Agents[v]) > 0) {
+          flag = false
+          console.log("手机端")
+          break
+        }
+      }
+      if (window.screen.width >= 768) {
+        flag = true
+        console.log("PC端")
+      }
+      return flag
+    }
+
+    // 页面加载完成后执行
+    window.onload = function () {
+      if (IsPC()) {
+        return
+      }
+      else {
+        window.location.href = "./mobile/index.html"
+      }
+    }
+  </script>
+
+  <script src="./static/js/index.js"></script>
+  <script src="./static/js/nav.js"></script>
+  <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+
+  <!-- 监听属性变化 -->
+  <script type="text/javascript">
+    var MutationObserver = window.MutationObserver || window.WebKitMutationObserver || window.MozMutationObserver//浏览器兼容
+    var config = { attributes: true, childList: true }//配置对象
+    $("#tab").each(function () {
+      var _this = $(this)
+      var observer = new MutationObserver(function (mutations) {//构造函数回调
+        mutations.forEach(function (record) {
+          if (record.type == "attributes") {//监听属性
+            console.log("html的属性发生了变化")
+          }
+          if (record.type == 'childList') {//监听结构发生变化
+            console.log("html的结构发生了变化")
+            var e = jQuery.Event("keyup")//模拟一个键盘事件
+            e.keyCode = 33//keyCode=13是回车
+            e.which = 33  //增加设置which
+            $('#tab').trigger(e)
+          }
+        })
+      })
+      observer.observe(_this[0], config)
+    })
+
+    $("#tab1").each(function () {
+      var _this = $(this)
+      var observer = new MutationObserver(function (mutations) {//构造函数回调
+        mutations.forEach(function (record) {
+          if (record.type == "attributes") {//监听属性
+            console.log("html的属性发生了变化")
+          }
+          if (record.type == 'childList') {//监听结构发生变化
+            console.log("html的结构发生了变化")
+            var e = jQuery.Event("keyup")//模拟一个键盘事件
+            e.keyCode = 33//keyCode=13是回车
+            e.which = 33  //增加设置which
+            $('#tab').trigger(e)
+          }
+        })
+      })
+      observer.observe(_this[0], config)
+    });
+  </script>
+
+  <!-- 烟花彩蛋 -->
+  <button id="firework-button" style="display: none;">点击放烟花</button>
+  <div class="text" id="text">恭喜你，要继续加油哦<span><img src="./static/fonts/smiley-sans.png" alt=""></span></div>
+  <script src="static/js/firework.js"></script>
+
+  <!-- 按钮彩蛋 -->
+  <button id="surpriseBtn" class="hidden surprise">Surprise</button>
+  <script src="static/js/caidan.js"></script>
+
+  <!-- 禁用开发者模式 -->
+  <script>
+    document.addEventListener('keydown', event => {
+      if (event.keyCode === 123 || (event.ctrlKey && event.shiftKey && event.keyCode === 73)) {
+        event.preventDefault()
+      }
+    })
+
+    setInterval(() => {
+      if (typeof console._commandLineAPI !== 'undefined' || typeof window._devtools !== 'undefined') {
+        window.location.reload()
+      }
+    }, 1000);
+
+  </script>
+
+
+
+</body>
+
+</html>
